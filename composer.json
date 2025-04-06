@@ -1,7 +1,6 @@
 {
   "name": "f3d/shop-common",
   "description": "Common tools for f3d shop microservices",
-  "version": "1.0.0",
   "type": "library",
   "autoload": {
     "psr-4": {
@@ -11,5 +10,10 @@
   "require": {
     "php": ">=8.1",
     "symfony/framework-bundle": "^6.4"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-main": "1.0.x-dev"
+    }
   }
 }
