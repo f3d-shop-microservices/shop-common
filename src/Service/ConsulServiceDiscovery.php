@@ -16,7 +16,7 @@ final class ConsulServiceDiscovery implements ServiceDiscoveryInterface {
 
     public function register(): void
     {
-        $serviceId = $this->serviceName . '-1';
+        $serviceId = $this->serviceName . '-' . substr(uniqid('', true), -6);
 
         $body = [
             'ID' => $serviceId,
