@@ -1,17 +1,25 @@
 <?php
 
-namespace Shop\Common\Health;
+namespace Shop\Common\Service;
 
-class HealthStatusProvider
+use Shop\Common\Contract\HealthProviderInterface;
+
+class HealthStatusProvider implements HealthProviderInterface
 {
 
-    public function getStatus(string $serviceId, ?string $host = null): array
+    public function __construct(
+        private string $serviceId,
+        private ?string $serviceHost = null
+    ) {
+    }
+
+    public function getStatus(): array
     {
         return [
             'status' => 'ok',
-            'service_id' => $serviceId,
+            'service_id' => $this->serviceId,
             'container_id' => $this->getDockerContainerId(),
-            'host' => $host,
+            'host' => $this->serviceHost,
             'time' => (new \DateTime())->format(\DateTime::ATOM),
         ];
     }
