@@ -24,7 +24,7 @@ final class ConsulServiceDiscovery implements ServiceDiscoveryInterface {
             'Address' => $this->serviceHost,
             'Port' => $this->servicePort,
             'Meta' => [
-                'public_address' => 'localhost',
+                'public_address' => $this->serviceHost === 'host.docker.internal' ? 'localhost' : $this->serviceHost,
                 'public_port' => (string)$this->servicePort,
             ],
             'Check' => [
