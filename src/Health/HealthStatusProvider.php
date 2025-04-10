@@ -1,8 +1,8 @@
 <?php
 
-namespace Shop\Common\Service;
+namespace Shop\Common\Health;
 
-use Shop\Common\Contract\HealthProviderInterface;
+use Shop\Common\Health\HealthProviderInterface;
 
 class HealthStatusProvider implements HealthProviderInterface
 {

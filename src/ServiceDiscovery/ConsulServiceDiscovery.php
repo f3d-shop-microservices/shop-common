@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Shop\Common\Service;
+namespace Shop\Common\ServiceDiscovery;
 
-use Shop\Common\Contract\ServiceDiscoveryInterface;
+use Shop\Common\ServiceDiscovery\ServiceDiscoveryInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class ConsulServiceDiscovery implements ServiceDiscoveryInterface {
@@ -23,6 +23,10 @@ final class ConsulServiceDiscovery implements ServiceDiscoveryInterface {
             'Name' => $this->serviceName,
             'Address' => $this->serviceHost,
             'Port' => $this->servicePort,
+            'Meta' => [
+                'public_address' => 'localhost',
+                'public_port' => (string)$this->servicePort,
+            ],
             'Check' => [
                 'HTTP' => "http://{$this->serviceHost}:{$this->servicePort}/health",
                 'Interval' => '10s',
