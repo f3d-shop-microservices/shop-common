@@ -16,7 +16,7 @@ final class ConsulServiceDiscovery implements ServiceDiscoveryInterface {
 
     public function register(): void
     {
-        $serviceId = $this->serviceName . '-' . uniqid('', true);
+        $serviceId = $this->serviceName . '[' . $this->serviceHost . ']';
 
         $body = [
             'ID' => $serviceId,
