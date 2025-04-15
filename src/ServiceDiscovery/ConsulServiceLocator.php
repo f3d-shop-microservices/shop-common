@@ -39,7 +39,7 @@ final class ConsulServiceLocator implements ServiceLocatorInterface {
             return $instance;
 
         } catch (\Throwable $e) {
-            echo "[Consul] Ошибка получения инстанса {$serviceName}: {$e->getMessage()}" . PHP_EOL;
+            echo "[Consul] Error while receiving instance {$serviceName}: {$e->getMessage()}" . PHP_EOL;
             return null;
         }
     }

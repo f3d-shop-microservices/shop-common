@@ -38,9 +38,9 @@ final class ConsulServiceDiscovery implements ServiceDiscoveryInterface {
             $this->httpClient->request('PUT',"http://{$this->consulHost}:8500/v1/agent/service/register", [
                 'json' => $body
             ]);
-            echo "[Consul] Сервис {$serviceId} зарегистрирован под именем {$this->serviceName}" . PHP_EOL;
+            echo "[Consul] Service {$serviceId} registered with name {$this->serviceName}" . PHP_EOL;
         } catch (\Throwable $e) {
-            echo '[Consul] Ошибка регистрации: ' . $e->getMessage() . PHP_EOL;
+            echo '[Consul] Registration error: ' . $e->getMessage() . PHP_EOL;
         }
     }
 }
